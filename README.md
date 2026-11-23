@@ -1,6 +1,20 @@
+<p align="center">
+  <img src="readme-banner.png" width="920" alt="JSON Trail. Find your way through nested JSON · /items/0/title · JSON Pointer.">
+</p>
+
 # JSON Trail
 
 Pick a nested value out of a JSON file or inspect the available keys without opening an editor.
+
+## At a glance
+
+| Task | How |
+| --- | --- |
+| **Read a nested value** | Pass a JSON Pointer such as `/items/0/title`. |
+| **Explore a container** | Use `--keys` to see what you can select next. |
+| **Use it in a pipeline** | Pass `-` to read stdin and `--compact` for compact JSON. |
+
+## Quick start
 
 ```sh
 python3 json_trail.py catalog.json /items/0/title
