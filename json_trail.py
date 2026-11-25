@@ -50,7 +50,8 @@ def main():
                 value = list(range(len(value)))
             else:
                 raise ValueError("--keys needs an object or array")
-        print(json.dumps(value, indent=None if args.compact else 2, ensure_ascii=False, allow_nan=False))
+        formatting = {"separators": (",", ":")} if args.compact else {"indent": 2}
+        print(json.dumps(value, ensure_ascii=False, allow_nan=False, **formatting))
     except (OSError, ValueError) as error:
         parser.error(str(error))
 

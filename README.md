@@ -23,3 +23,26 @@ cat catalog.json | python3 json_trail.py - /items --compact
 ```
 
 Requires Python 3.8+. An empty pointer returns the whole document. Array indices start at zero. Use `~1` for a slash and `~0` for a literal tilde inside a key. [MIT](LICENSE)
+
+## Try it with sample input
+
+```sh
+printf '%s\n' '{"items":[{"title":"Sound check"}]}' | python3 json_trail.py - /items/0/title
+```
+
+This prints the JSON string `"Sound check"`. Errors go to stderr and produce exit status 2.
+
+```mermaid
+flowchart LR
+    A[File or stdin] --> B[Parse JSON]
+    B --> C[Resolve JSON Pointer]
+    C --> D[Print a value or its keys]
+```
+
+## Development
+
+Run the dependency-free test suite from the repository root.
+
+```sh
+python3 -m unittest discover -s tests -v
+```
